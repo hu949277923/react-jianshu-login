@@ -11,8 +11,8 @@ const request = axios.create({})
 function SignIn () {
   // 注册数据
   const initialValues = {
-    email: window.localStorage.getItem('email') || 'hu949277923@163.com',
-    password: window.localStorage.getItem('password') || 'test123456',
+    email: window.localStorage.getItem('email') || 'jake@jake.jake',
+    password: window.localStorage.getItem('password') || 'jakejake',
     isSave: true
   }
 
@@ -24,8 +24,12 @@ function SignIn () {
       window.localStorage.setItem('email', values.email)
       window.localStorage.setItem('password', values.password)
     }
-    const { data } = await request.post('/api/users/login', {
-      user: values
+    const { data } = await request.post('http://realworld.api.fed.lagounews.com/api/users/login', {
+      user: {
+        username: "", 
+        email: values.email, 
+        password: values.password
+      }
     }).catch(() => {
       toast({
         title: "用户登录",

@@ -8,10 +8,3 @@ npm run start
 
 ```
 
-## nginx 代理配置
-
-``` nginx
-location /api {
-  proxy_pass http://conduit.productionready.io;  # uri为'/svr1'
-}
-```

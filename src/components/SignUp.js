@@ -21,8 +21,12 @@ function SignUp () {
   // 点击注册按钮
   const handleSubmit = async (values, actions) => {
     console.log(values)
-    const { data } = await request.post('/api/users', {
-      user: values
+    const { data } = await request.post('http://realworld.api.fed.lagounews.com/api/users', {
+      user: {
+        username: values.username,
+        email: values.email,
+        password:values.password
+      }
     }).catch(() => {
       toast({
         title: "用户注册",
